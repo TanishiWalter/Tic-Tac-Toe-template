@@ -1,0 +1,24 @@
+#This file is gonna manage all the other parts, and merge them together. 
+
+import functions
+
+winVar = False
+grid = [[0,0,0],[0,0,0],[0,0,0]]
+turn = "X"
+
+while winVar == False:
+  functions.printGrid(grid)
+  winVar = functions.updateGrid(grid)
+  if winVar == True:
+    break
+  functions.playerTurn(grid, turn)
+  functions.updateGrid(grid)
+  functions.playerChecker(turn, winVar)
+  if winVar == True:
+    break
+  functions.playerChanger(turn)
+  functions.printGrid(grid)
+  functions.winChecker(grid, turn, winVar)
+  if winVar == True:
+    break
+  
