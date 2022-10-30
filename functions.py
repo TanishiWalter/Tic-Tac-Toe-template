@@ -28,7 +28,11 @@ def playerTurn(gridP, turnP):
       Test = int(i)
     except Exception as e:
       continue
-  gridP[int(inputVarSpl[0])][int(inputVarSpl[1])] = turnP
+  if gridP[int(inputVarSpl[0])][int(inputVarSpl[1])] == "O" or gridP[int(inputVarSpl[0])][int(inputVarSpl[1])] == "X":
+    print("You can't pleace your shape here!")
+    playerTurn(gridP,turnP)
+  else :
+    gridP[int(inputVarSpl[0])][int(inputVarSpl[1])] = turnP
 
 def playerChanger(turnP):
   if turnP == "X":
