@@ -16,9 +16,9 @@ while winVar == False:
   functions.playerChecker(turn, winVar)
   if winVar == True:
     break
-  functions.playerChanger(turn)
+  turn = functions.playerChanger(turn)
   functions.printGrid(grid)
-  functions.winChecker(grid, turn, winVar)
+  winVar = functions.winChecker(grid, turn, winVar)
   if winVar == True:
     break
   
