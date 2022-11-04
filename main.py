@@ -6,8 +6,9 @@ winVar = False
 grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 turn = "X"
 
+functions.printGrid(grid)
+
 while winVar == False:
-  functions.printGrid(grid)
   winVar = functions.updateGrid(grid)
   if winVar == True:
     break
@@ -16,12 +17,12 @@ while winVar == False:
   except Exception as e:
     print(e)
     continue
+  functions.printGrid(grid)
   functions.updateGrid(grid)
   functions.playerChecker(turn, winVar)
   if winVar == True:
     break
   turn = functions.playerChanger(turn)
-  functions.printGrid(grid)
   winVar = functions.winChecker(grid, turn, winVar)
   if winVar == True:
     break
