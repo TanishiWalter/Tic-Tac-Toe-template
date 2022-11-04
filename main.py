@@ -1,9 +1,9 @@
-#This file is gonna manage all the other parts, and merge them together. 
+#This file is gonna manage all the other parts, and merge them together.
 
 import functions
 
 winVar = False
-grid = [[0,0,0],[0,0,0],[0,0,0]]
+grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 turn = "X"
 
 while winVar == False:
@@ -11,7 +11,11 @@ while winVar == False:
   winVar = functions.updateGrid(grid)
   if winVar == True:
     break
-  functions.playerTurn(grid, turn)
+  try:
+    functions.playerTurn(grid, turn)
+  except Exception as e:
+    print(e)
+    continue
   functions.updateGrid(grid)
   functions.playerChecker(turn, winVar)
   if winVar == True:
@@ -21,4 +25,3 @@ while winVar == False:
   winVar = functions.winChecker(grid, turn, winVar)
   if winVar == True:
     break
-  
